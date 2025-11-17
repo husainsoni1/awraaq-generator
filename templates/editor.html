@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Awraaq Generator</title>
+  <style>
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(18, 38, 63, 0.07);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin: 6px 0 14px;
+      text-align: center;
+    }
+
+    .ribbon {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px;
+      border-radius: 8px;
+      background: #f6f8fb;
+    }
+
+    .group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px;
+      border-radius: 6px;
+      background: #ffffff;
+    }
+
+    .group select,
+    .group button,
+    .group input[type="number"],
+    .group input[type="color"] {
+      padding: 6px 8px;
+      border-radius: 6px;
+      border: 1px solid #dfe6ee;
+      font-size: 14px;
+    }
+
+    /* Dropdown styles */
+    .dropbtn {
+      background: #ffffff;
+      color: #333;
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #dfe6ee;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: #ffffff;
+      min-width: 160px;
+      box-shadow: 0 6px 20px rgba(18, 38, 63, 0.07);
+      border-radius: 6px;
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: #333;
+      padding: 8px 12px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+      background: #f6f8fb;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+      background: #f6f8fb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Awraaq Generator</h1>
+
+    <div class="ribbon">
+      <div class="group">
+        <button onclick="exportToServer('pdf')">Export PDF</button>
+        <button onclick="exportToServer('booklet')">Export Booklet</button>
+      </div>
+
+      <!-- New Default Version dropdown -->
+      <div class="group">
+        <div class="dropdown">
+          <button class="dropbtn">Default Version</button>
+          <div class="dropdown-content">
+            <a href="#" onclick="exportToServer('default','pdf')">PDF (A5)</a>
+            <a href="#" onclick="exportToServer('default','docx')">Word (.docx)</a>
+            <a href="#" onclick="exportToServer('default','booklet')">Booklet (A4)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <textarea id="editor" style="width:100%;height:300px;margin-top:20px;"></textarea>
+  </div>
+
+  <script>
+    function exportToServer(type, fmt=null) {
+      const html = document.getElementById("editor").value;
+      let url = "";
+
+      if (type === "default") {
+        url = "/export_default/?format=" + fmt;
+      } else if (type === "pdf") {
+        url = "/export_pdf/";
+      } else if (type === "booklet") {
+        url = "/export_booklet/";
+      }
+
+      fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "html=" + encodeURIComponent(html)
+      })
+      .then(resp => resp.blob())
+      .then(blob => {
+        const a = document.createElement("a");
+        a.href = window.URL.createObjectURL(blob);
+        a.download = "awraaq_output." + (fmt==="docx" ? "docx" : "pdf");
+        a.click();
+      });
+    }
+  </script>
+</body>
+</html>
