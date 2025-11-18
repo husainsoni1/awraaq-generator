@@ -6,5 +6,7 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "django>=5.2.8",
+    "django-ckeditor-5>=0.2.18",
+    "pypdf>=6.3.0",
     "reportlab>=4.4.5",
 ]

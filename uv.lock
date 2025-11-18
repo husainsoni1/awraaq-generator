@@ -17,12 +17,16 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "django" },
+    { name = "django-ckeditor-5" },
+    { name = "pypdf" },
     { name = "reportlab" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=5.2.8" },
+    { name = "django-ckeditor-5", specifier = ">=0.2.18" },
+    { name = "pypdf", specifier = ">=6.3.0" },
     { name = "reportlab", specifier = ">=4.4.5" },
 ]
 
@@ -98,6 +102,19 @@ wheels = [
 ]
 
 [[package]]
+name = "django-ckeditor-5"
+version = "0.2.18"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "django" },
+    { name = "pillow" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/17/c0/2ddd9b6b5b62f37f24e470684b5cc5494de2504ce00d6e803f3005fdebbc/django_ckeditor_5-0.2.18.tar.gz", hash = "sha256:08270b1dd8d1b5c27c5a2023ec8f920e2ec0c7d2afa0113af765f0de53947d35", size = 2630309, upload-time = "2025-05-09T15:54:38.668Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/46/e1/c4a02822e86e733cbb5f4c8c2d881bd16cd0a251780e34aff16d2ea82008/django_ckeditor_5-0.2.18-py3-none-any.whl", hash = "sha256:155d14bed6688791026486c191dd82dbc2937d6a588079989d5bd89708de8463", size = 2726759, upload-time = "2025-05-09T15:54:35.281Z" },
+]
+
+[[package]]
 name = "pillow"
 version = "12.0.0"
 source = { registry = "https://pypi.org/simple" }
@@ -167,6 +184,15 @@ wheels = [
 ]
 
 [[package]]
+name = "pypdf"
+version = "6.3.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/42/fd/6b5ff827a5b751a85c1a3a778a0636d1ddbe153fc03954071c431271405c/pypdf-6.3.0.tar.gz", hash = "sha256:d066a2fdf8195e1811ae5a9d5a2f97f5bed0e1e7954297295eadee6357e76c5d", size = 5275038, upload-time = "2025-11-16T14:05:16.37Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d1/26/4ae62da67941784913606da037172d0f14b7ba120442e63a37b257110b2c/pypdf-6.3.0-py3-none-any.whl", hash = "sha256:2d5f9741e851e378908692d571374b3cbd94582fdd1c740fcf7c029ec35ac0e6", size = 328891, upload-time = "2025-11-16T14:05:14.574Z" },
+]
+
+[[package]]
 name = "reportlab"
 version = "4.4.5"
 source = { registry = "https://pypi.org/simple" }
@@ -174,6 +200,7 @@ dependencies = [
     { name = "charset-normalizer" },
     { name = "pillow" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/48/80/dfa85941e3c3800aa5cd2f940c1903358c1fb61149f5f91b62efa61e7d03/reportlab-4.4.5.tar.gz", hash = "sha256:0457d642aa76df7b36b0235349904c58d8f9c606a872456ed04436aafadc1510", size = 3910836, upload-time = "2025-11-18T11:43:10.242Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c7/16/0c26a7bdfd20cba49a011b1095461be120c53df3926e9843fccfb9530e72/reportlab-4.4.5-py3-none-any.whl", hash = "sha256:849773d7cd5dde2072fedbac18c8bc909506c8befba8f088ba7b09243c6684cc", size = 1954256, upload-time = "2025-11-17T12:03:05.214Z" },
 ]
