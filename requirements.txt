@@ -1,5 +1,8 @@
+Django>=5.0
+django-ckeditor-5==0.2.14
 weasyprint
 python-docx
 mammoth
 pypdf
 beautifulsoup4
+fonttools
