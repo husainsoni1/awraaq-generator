@@ -1,4 +1,5 @@
 from django import forms
+from django_ckeditor_5.widgets import CKEditor5Widget
 from .models import Document
 
 class DocumentForm(forms.ModelForm):
@@ -6,5 +7,5 @@ class DocumentForm(forms.ModelForm):
         model = Document
         fields = ["title", "content"]
         widgets = {
-            "content": forms.Textarea(attrs={"class": "django_ckeditor_5"}),
+            "content": CKEditor5Widget(config_name="default"),
         }

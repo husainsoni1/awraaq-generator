@@ -42,6 +42,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
@@ -50,16 +51,32 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 CKEDITOR_5_CONFIGS = {
     "default": {
+        "language": {
+            "content": "ar"
+        },
         "toolbar": [
             "heading", "|",
             "bold", "italic", "underline", "|",
+            "fontFamily", "fontSize", "|",
             "link", "bulletedList", "numberedList", "|",
             "outdent", "indent", "|",
             "blockQuote", "insertTable", "|",
             "undo", "redo",
         ],
+        "fontFamily": {
+            "options": [
+                "default",
+                "AlKanz",
+                "KanzAlMarjaan",
+                "Arial",
+                "Times New Roman",
+            ],
+            "supportAllValues": True
+        }
     }
 }
+
+CKEDITOR_5_DEFAULT_CONFIG = "default"
 
 # Use BigAutoField for primary keys
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -25,7 +25,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "django", specifier = ">=5.2.8" },
-    { name = "django-ckeditor-5", specifier = ">=0.2.18" },
+    { name = "django-ckeditor-5", specifier = "==0.2.14" },
     { name = "pypdf", specifier = ">=6.3.0" },
     { name = "reportlab", specifier = ">=4.4.5" },
 ]
@@ -103,15 +103,15 @@ wheels = [
 
 [[package]]
 name = "django-ckeditor-5"
-version = "0.2.18"
+version = "0.2.14"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "django" },
     { name = "pillow" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/17/c0/2ddd9b6b5b62f37f24e470684b5cc5494de2504ce00d6e803f3005fdebbc/django_ckeditor_5-0.2.18.tar.gz", hash = "sha256:08270b1dd8d1b5c27c5a2023ec8f920e2ec0c7d2afa0113af765f0de53947d35", size = 2630309, upload-time = "2025-05-09T15:54:38.668Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/14/22/ab9ad45953e3b1dd7003d26594569a53a03ac170a3bc4ac0098af69299d7/django_ckeditor_5-0.2.14.tar.gz", hash = "sha256:bc7709588077a12feb934373d4091bb38c1ed7b4ec7867fcda4896600c0a2f3c", size = 2531371, upload-time = "2024-10-12T17:10:05.046Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/46/e1/c4a02822e86e733cbb5f4c8c2d881bd16cd0a251780e34aff16d2ea82008/django_ckeditor_5-0.2.18-py3-none-any.whl", hash = "sha256:155d14bed6688791026486c191dd82dbc2937d6a588079989d5bd89708de8463", size = 2726759, upload-time = "2025-05-09T15:54:35.281Z" },
+    { url = "https://files.pythonhosted.org/packages/d9/66/b18c7700308129d257528bd490df948c87d1130605e97a812f119d3dbff4/django_ckeditor_5-0.2.14-py3-none-any.whl", hash = "sha256:ed3be0c0381a181e013507ed39a89d73d8a8da9cde670915f071b3dde6b93c56", size = 2572677, upload-time = "2024-10-12T17:10:02.678Z" },
 ]
 
 [[package]]
