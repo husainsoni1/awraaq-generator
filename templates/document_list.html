@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documents</title>
+</head>
+<body>
+
+<h1>All Documents</h1>
+<a href="{% url 'create_document' %}">Create New Document</a>
+
+<ul>
+    {% for doc in docs %}
+        <li>{{ doc.title }} — {{ doc.updated_at }}</li>
+    {% empty %}
+        <li>No documents yet.</li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
